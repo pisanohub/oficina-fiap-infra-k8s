@@ -15,8 +15,7 @@ variable "ssh_allowed_cidr" {
   type        = string
 }
 
-variable "ssh_public_key_path" {
-  description = "Caminho local da chave publica SSH a ser registrada na AWS."
+variable "ssh_public_key" {
+  description = "Conteudo da chave publica SSH a ser registrada na AWS (nao o caminho do arquivo - o conteudo em si, para funcionar tanto local quanto no CI)."
   type        = string
-  default     = "~/.ssh/oficina-fiap-k3s.pub"
 }
