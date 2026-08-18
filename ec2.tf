@@ -30,9 +30,12 @@ resource "aws_instance" "k3s_node" {
   user_data = <<-EOF
     #!/bin/bash
     set -e
-    PUBLIC_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+    TOKEN=$(curl -s -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+    PUBLIC_IP=$(curl -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-ipv4)
     curl -sfL https://get.k3s.io | sh -s - --tls-san "$PUBLIC_IP" --write-kubeconfig-mode 644
   EOF
+
+  user_data_replace_on_change = true
 
   tags = {
     Name = "oficina-fiap-k3s-node"
