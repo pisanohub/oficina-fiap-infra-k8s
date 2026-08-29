@@ -25,3 +25,6 @@ override.tf.json
 # Configuracao local da CLI do Terraform
 .terraformrc
 terraform.rc
+
+# Kubeconfig - contem credenciais de acesso administrativo ao cluster
+kubeconfig*.yaml
