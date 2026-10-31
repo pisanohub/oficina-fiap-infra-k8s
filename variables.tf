@@ -7,7 +7,7 @@ variable "aws_region" {
 variable "instance_type" {
   description = "Tipo da instancia EC2 que vai rodar o k3s."
   type        = string
-  default     = "t3.medium"
+  default     = "t3.large"
 }
 
 variable "ssh_allowed_cidr" {
