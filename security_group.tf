@@ -12,11 +12,11 @@ resource "aws_security_group" "k3s_node" {
   }
 
   ingress {
-    description = "API do Kubernetes - apenas do IP autorizado"
+    description = "API do Kubernetes - publico (runners do GitHub Actions usam IPs dinamicos; protegido por autenticacao via certificado cliente/kubeconfig)"
     from_port   = 6443
     to_port     = 6443
     protocol    = "tcp"
-    cidr_blocks = [var.ssh_allowed_cidr]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
