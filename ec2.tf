@@ -19,6 +19,7 @@ resource "aws_instance" "k3s_node" {
   subnet_id              = data.aws_subnets.default.ids[0]
   vpc_security_group_ids = [aws_security_group.k3s_node.id]
   key_name               = aws_key_pair.k3s_node.key_name
+  iam_instance_profile   = "LabInstanceProfile"
 
   associate_public_ip_address = true
 
