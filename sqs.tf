@@ -6,8 +6,8 @@ locals {
     "orcamento-respondido", # Billing -> OS
     "processar-pagamento",  # OS -> Billing
     "pagamento-confirmado", # Billing -> OS
-    "enviar-execucao",      # OS -> Execucao
-    "execucao-concluida",   # Execucao -> OS
+    "execucao-comandos",    # OS -> Execucao
+    "execucao-resultados",  # Execucao -> OS
   ]
 }
 
